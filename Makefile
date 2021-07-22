@@ -33,12 +33,12 @@ check: prerequisites lint
 
 commit:
 	git add --all .
-	git commit -S -m "$(COMMIT_MESSAGE)"
+	git commit -s -m "$(COMMIT_MESSAGE)"
 	git push
 
 tag:
 	if git tag -l --sort=v:refname | grep -q "$(TAG)" ; then git tag -d "$(TAG)" ; git push --delete origin "$(TAG)" ; fi
-	git tag -S -a -m "$(TAG)" "$(TAG)"
+	git tag -a -m "$(TAG)" "$(TAG)"
 	git push origin "$(TAG)"
 
 publish: check commit tag
