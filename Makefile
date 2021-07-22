@@ -5,14 +5,6 @@ SHELL=/bin/bash
 
 .DEFAULT_GOAL := publish
 
-setup:
-	gpgconf --kill gpg-agent
-	rm -rf ~/.gnupg
-	gpg-agent --homedir "${GNUPGHOME:-$HOME/.gnupg}" --daemon
-	gpg --import "$(GPG_KEY)"
-	git config --global user.signingKey $(gpg --list-secret-keys --keyid-format long | awk -F/ '/^sec/ {print $2}' | awk '{print $1}')
-	git config --global commit.gpgSign true
-
 prerequisites:
 	mdl --version >/dev/null
 	shellcheck --version >/dev/null
@@ -37,6 +29,14 @@ tag:
 	git push origin "$(TAG)"
 
 publish: check commit tag
+
+setup:
+	gpgconf --kill gpg-agent
+	rm -rf ~/.gnupg
+	gpg-agent --homedir "${GNUPGHOME:-$HOME/.gnupg}" --daemon
+	gpg --import "$(GPG_KEY)"
+	git config --global user.signingKey $(gpg --list-secret-keys --keyid-format long | awk -F/ '/^sec/ {print $2}' | awk '{print $1}')
+	git config --global commit.gpgSign true
 
 remove-tags:
 	git tag --list | xargs git push --delete origin
