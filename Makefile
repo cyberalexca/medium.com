@@ -3,11 +3,6 @@ TAG := $(shell date +%y.%m.%d)
 
 SHELL=/bin/bash
 
-#
-# GPG_TTY=$(tty)
-# export GPG_TTY
-#
-
 .DEFAULT_GOAL := publish
 
 setup:
