@@ -1,0 +1,22 @@
+{
+    "editor.rulers": [100],
+    "files.eol": "\n",
+    "editor.tabSize": 4,
+    "[yaml]": {
+        "editor.tabSize": 2
+    },
+    "[json]": {
+        "editor.tabSize": 4
+    },
+    "[go]": {
+        "editor.tabSize": 8
+    },
+    "editor.insertSpaces": true,
+    "files.associations": {
+        "*.sample": "shellscript",
+        "*.env": "shellscript"
+    },
+    "go.delveConfig": {
+        "debugAdapter": "dlv-dap",
+    },
+}

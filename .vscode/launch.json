@@ -1,0 +1,26 @@
+{
+    //
+    // Variables: https://code.visualstudio.com/docs/editor/variables-reference
+    //
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Local",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${fileDirname}/main.go",
+            "envFile": "${fileDirname}/.env",
+        },
+        {
+            "name": "Remote",
+            "type": "go",
+            "request": "attach",
+            "mode": "remote",
+            "host": "127.0.0.1",
+            "port": 2345,
+            "cwd": "${workspaceFolder}",
+            "apiVersion": 2,
+        },
+    ]
+}
