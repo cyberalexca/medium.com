@@ -1,4 +1,4 @@
-module send-message
+module send-telegram-message
 
 go 1.16
 
