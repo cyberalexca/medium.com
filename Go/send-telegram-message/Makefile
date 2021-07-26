@@ -11,14 +11,11 @@ prerequisites:
 	go get
 	go mod tidy
 
-lint:
-	golangci-lint run
-
 clean:
 	go clean
 	rm -f "$(BINARY_NAME)" __debug_bin
 
-build: prerequisites lint
+build: prerequisites
 	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o $(BINARY_NAME) main.go
 
 run: build
