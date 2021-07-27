@@ -1,4 +1,4 @@
 Send or receive messages via Telegram
 ===
 
-TODO: Tutorial described [here](https://medium.com/@marius.lupu).
+Tutorial described [here](https://medium.com/geekculture/how-to-use-go-to-send-telegram-messages-to-your-phone-a819bdf7f35c).
